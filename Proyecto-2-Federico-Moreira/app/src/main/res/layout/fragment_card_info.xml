@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.proyecto2.proyecto_2_federico_moreira.viewModel.viewmodels.CardInfoViewModel"/>
+    </data>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical"
+            tools:context=".CardInfoFragment">
+
+            <FrameLayout
+                android:background="@drawable/roundstyle"
+                android:backgroundTint="@android:color/black"
+                android:layout_width="400dp"
+                android:layout_height="240dp"
+                android:padding="0dp">
+
+                <ImageButton
+                    android:background="@drawable/roundstyle"
+                    android:backgroundTint="@android:color/black"
+                    android:id="@+id/imageButton"
+                    android:layout_width="400dp"
+                    android:layout_height="240dp"
+                    android:scaleType="centerCrop"
+                    app:imageResource = "@{viewModel.card.image}"
+                    tools:src="@drawable/visaplatinum" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp">
+
+                    <TextView
+                        android:id="@+id/money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.card.availableMoney}"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.074"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.058"
+                        tools:text="$0" />
+
+                    <TextView
+                        android:id="@+id/card_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.card.cardNumber}"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.100"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.550"
+                        tools:text="598 - 4972 - 5406" />
+
+                    <TextView
+                        android:id="@+id/fullName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginBottom="84dp"
+                        android:text="@{viewModel.card.fullName}"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="Federico Moreira" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp">
+
+                <Button
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/roundstyle_button"
+                    android:id="@+id/send_transaction_btn"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="@{()->viewModel.onButtonSendMoneyClicked(viewModel.card.idCard)}"
+                    android:text="@string/send_transfer"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/roundstyle_button"
+                    android:id="@+id/give_transaction_btn"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/give_transfer"
+                    android:onClick="@{()->viewModel.onButtonAddMoneyClicked(viewModel.card.idCard)}"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/transfer"
+                android:textColor="@color/textColor"
+                android:textSize="28sp" />
+
+            <TextView
+                android:layout_marginTop="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/done_give_transfer"
+                android:textColor="@color/textColor"
+                android:textSize="28sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/transfer_list"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        </LinearLayout>
+</layout>

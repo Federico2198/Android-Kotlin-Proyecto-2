@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/accountFragment">
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.proyecto2.proyecto_2_federico_moreira.ui.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_cardDetailsFragment"
+            app:destination="@id/cardDetailsFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_cardCreationFragment"
+            app:destination="@id/cardCreationFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_cardEditFragment"
+            app:destination="@id/cardEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardDetailsFragment"
+        android:name="com.proyecto2.proyecto_2_federico_moreira.ui.CardInfoFragment"
+        android:label="fragment_card_details"
+        tools:layout="@layout/fragment_card_details" >
+        <argument
+            android:name="idCard"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_cardDetailsFragment_to_addMoneyFragment"
+            app:destination="@id/addMoneyFragment" />
+        <action
+            android:id="@+id/action_cardDetailsFragment_to_sendMoneyFragment"
+            app:destination="@id/sendMoneyFragment" />
+        <action
+            android:id="@+id/action_cardDetailsFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardCreationFragment"
+        android:name="com.proyecto2.proyecto_2_federico_moreira.ui.CardAddFragment"
+        android:label="CardCreationFragment" >
+        <action
+            android:id="@+id/action_cardCreationFragment_to_accountFragment"
+            app:destination="@id/accountFragment"
+            app:popUpTo="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardEditFragment"
+        android:name="com.proyecto2.proyecto_2_federico_moreira.ui.CardEditFragment"
+        android:label="fragment_card_edit"
+        tools:layout="@layout/fragment_card_edit" >
+        <argument
+            android:name="idCard"
+            app:argType="long" />
+        <argument
+            android:name="delete"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+        <action
+            android:id="@+id/action_cardEditFragment_to_accountFragment"
+            app:destination="@id/accountFragment"
+            app:popUpTo="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMoneyFragment"
+        android:name="com.proyecto2.proyecto_2_federico_moreira.ui.AddMoneyFragment"
+        android:label="AddMoneyFragment" >
+        <action
+            android:id="@+id/action_addMoneyFragment_to_cardDetailsFragment"
+            app:destination="@id/cardDetailsFragment"
+            app:popUpTo="@id/cardDetailsFragment" />
+        <argument
+            android:name="idCard"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendMoneyFragment"
+        android:name="com.proyecto2.proyecto_2_federico_moreira.ui.SendMoneyFragment"
+        android:label="fragment_send_money"
+        tools:layout="@layout/fragment_send_money" >
+        <action
+            android:id="@+id/action_sendMoneyFragment_to_cardDetailsFragment"
+            app:destination="@id/cardDetailsFragment"
+            app:popUpTo="@id/cardDetailsFragment" />
+        <argument
+            android:name="idCard"
+            app:argType="long" />
+    </fragment>
+</navigation>

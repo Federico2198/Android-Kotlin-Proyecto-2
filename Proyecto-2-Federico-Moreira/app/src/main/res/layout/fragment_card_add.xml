@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.proyecto2.proyecto_2_federico_moreira.viewModel.viewmodels.CardCreationViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingHorizontal="16dp"
+        tools:context=".CardAddFragment">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="@string/add_card"
+            android:textColor="@color/textColor"
+            android:textSize="28sp" />
+
+        <EditText
+            android:layout_marginTop="60dp"
+            android:id="@+id/card_number_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:autofillHints="creditCardNumber"
+            android:hint="@string/card_number"
+            android:text="@={viewModel.card.cardNumber}"
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/fullName_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:autofillHints="name"
+            android:hint="@string/full_name"
+            android:inputType="text"
+            android:text="@={viewModel.card.fullName}"
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/pin_code_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:autofillHints="creditCardSecurityCode"
+            android:hint="@string/pin_code"
+            android:inputType="numberPassword"
+            android:text="@{viewModel.card.pinCode}"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/select_type_of_card"
+            android:layout_marginLeft="80dp"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:checkedButton="@={viewModel.card.imgTemp}"
+            android:orientation="horizontal"
+            android:textSize="18sp">
+
+            <RadioButton
+                android:id="@+id/radio_group_value1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/visa_infinite" />
+
+            <RadioButton
+                android:id="@+id/radio_group_value2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/visa_platinum" />
+
+            <RadioButton
+                android:id="@+id/radio_group_value3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/visa_signature" />
+
+        </RadioGroup>
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:background="@drawable/roundstyle_button"
+            android:id="@+id/card_insertion_btn"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="@{()->viewModel.addCard()}"
+            android:text="@string/add_card"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+</layout>

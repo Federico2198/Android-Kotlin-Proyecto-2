@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name"> Cards Proyecto2 - Federico Moreira </string>
+
+    <!-- Combo de seleccion de Card -->
+    <string name="visa_infinite">Visa Infinite</string>
+    <string name="visa_platinum">Visa Platinum</string>
+    <string name="visa_signature">Visa Signature</string>
+    <string name="select_type_of_card">Seleccionar tipo de Card</string>
+
+    <!-- Creacion de Card -->
+    <string name="card">card</string>
+    <string name="add_card">Agregar Card</string>
+    <string name="card_number">Ingrese el numero de Card</string>
+    <string name="full_name">Ingrese el nombre completo</string>
+    <string name="pin_code">Ingrese el codigo de Card</string>
+    <string name="create_card">create_card</string>
+
+    <!-- Editar Card, Guardar Ediccion y Eliminar -->
+    <string name="edit_card">Editar Card</string>
+    <string name="card_number_edit">Edite el numero de Card</string>
+    <string name="card_name_edit">Edite el nombre de Card</string>
+    <string name="edite_codigo_card">Edite el codigo de Card</string>
+    <string name="guardar_cambios">Guardar Cambios</string>
+    <string name="eliminar_card">Eliminar Card</string>
+
+    <!-- Transfer -->
+    <string name="send_transfer">Enviar Transferencia</string>
+    <string name="give_transfer">Recibir Transferencia</string>
+    <string name="transfer">Transferencias</string>
+    <string name="done_give_transfer">Realizadas y Recibidas</string>
+    <string name="amount_transfer">Monto a Transferir</string>
+    <string name="user">User</string>
+    <string name="transfer_por_defecto">$ 0</string>
+
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    <variable
+        name="viewModel"
+        type="com.proyecto2.proyecto_2_federico_moreira.viewModel.viewmodels.AddMoneyViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AddMoneyFragment"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        android:paddingTop="5dp"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="@string/give_transfer"
+            android:textColor="@color/textColor"
+            android:textSize="28sp"/>
+
+        <EditText
+            android:layout_marginTop="60dp"
+            android:id="@+id/amountOfMoney"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/give_transfer"
+            android:text="@={viewModel.money}"
+            android:gravity="center"/>
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:background="@drawable/roundstyle_button"
+            android:id="@+id/send_transaction_btn"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/give_transfer"
+            android:onClick="@{()->viewModel.addMoney()}"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</layout>
